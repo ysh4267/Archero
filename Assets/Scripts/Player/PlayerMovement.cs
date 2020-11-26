@@ -20,18 +20,19 @@ public class PlayerMovement : MonoBehaviour {
 
 	Rigidbody rb;
 	public float moveSpeed = 25f;
+	public Animator Anim;
 
 	// Start is called before the first frame update
 	void Start() {
 		rb = GetComponent<Rigidbody>();
+		Anim = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
 	void FixedUpdate() {
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
-
-		Debug.Log("가로" + moveHorizontal + " / 세로" + moveVertical);
-		rb.velocity = new Vector3(moveHorizontal * moveSpeed, rb.velocity.y, moveVertical * moveSpeed);
+		if (JoyStickMovement.Instance.joyVec.x != 0 || JoyStickMovement.Instance.joyVec.y != 0) {
+			rb.velocity = new Vector3(JoyStickMovement.Instance.joyVec.x, 0, JoyStickMovement.Instance.joyVec.y) * moveSpeed;
+			rb.rotation = Quaternion.LookRotation(new Vector3(JoyStickMovement.Instance.joyVec.x, 0, JoyStickMovement.Instance.joyVec.y));
+		}
 	}
 }
