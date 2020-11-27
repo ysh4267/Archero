@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509167523328138907}
   - component: {fileID: 509167523341832127}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: PotatoEyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 509167523328138909}
   - component: {fileID: 509167523327368895}
   - component: {fileID: 509167523326237823}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Potatobody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 2673078694246770925}
   - component: {fileID: -6954676443500277749}
   - component: {fileID: -1860011773890254939}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Potato
   m_TagString: Untagged
   m_Icon: {fileID: 0}

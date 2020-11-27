@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTargeting : MonoBehaviour {
-	public static PlayerTargeting Instance 
-	{
+	public static PlayerTargeting Instance {
 		get {
 			if (instance == null) {
 				instance = FindObjectOfType<PlayerTargeting>();
@@ -37,7 +36,7 @@ public class PlayerTargeting : MonoBehaviour {
 	void OnDrawGizmos() {
 		if (getATarget) {
 			for (int i = 0; i < MonsterList.Count; i++) {
-				if (MonsterList[i] == null) return; 
+				if (MonsterList[i] == null) return;
 				RaycastHit hit;
 				bool isHit = Physics.Raycast(transform.position, MonsterList[i].transform.position - transform.position, out hit, 20f, layerMask);
 
@@ -83,8 +82,7 @@ public class PlayerTargeting : MonoBehaviour {
 
 						TargetDist = currentDist;
 
-						if (!JoyStickMovement.Instance.isPlayerMoving && prevTargetIndex != TargetIndex)
-						{
+						if (!JoyStickMovement.Instance.isPlayerMoving && prevTargetIndex != TargetIndex) {
 							TargetIndex = prevTargetIndex;
 						}
 					}
@@ -107,8 +105,7 @@ public class PlayerTargeting : MonoBehaviour {
 	}
 
 	void AtkTarget() {
-		if (TargetIndex == -1 || MonsterList.Count == 0)
-		{
+		if (TargetIndex == -1 || MonsterList.Count == 0) {
 			PlayerMovement.Instance.Anim.SetBool("Attack", false);
 			return;
 		}
@@ -118,7 +115,7 @@ public class PlayerTargeting : MonoBehaviour {
 			if (PlayerMovement.Instance.Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
 				PlayerMovement.Instance.Anim.SetBool("Idle", false);
 				PlayerMovement.Instance.Anim.SetBool("Walk", false);
-				PlayerMovement.Instance.Anim.SetBool ( "Attack", true );
+				PlayerMovement.Instance.Anim.SetBool("Attack", true);
 			}
 
 		}
