@@ -43,7 +43,7 @@ public class JoyStickMovement : MonoBehaviour {
 			PlayerMovement.Instance.Anim.SetBool("Walk", true);
 		}
 		isPlayerMoving = true;
-		//PlayerTargeting.Instance.getATarget = false;
+		PlayerTargeting.Instance.getATarget = false;
 	}
 
 	public void Drag(BaseEventData baseEventData) {
