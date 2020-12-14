@@ -12,6 +12,7 @@ public class PlayerWeapon : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.transform.CompareTag("Wall") || other.transform.CompareTag("Monster")) {
+			//벽또는 몬스터에 닿았을때
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			Destroy(gameObject, 0.2f);
 		}
@@ -19,6 +20,7 @@ public class PlayerWeapon : MonoBehaviour
 
 	private void OnCollisionEnter (Collision collision) {
 		if (collision.transform.CompareTag("Wall") || collision.transform.CompareTag("Monster")) {
+			//벽또는 몬스터에 닿았을때
 			GetComponent<Rigidbody>().velocity = Vector3.zero;
 			Destroy(gameObject, 0.2f);
 		}

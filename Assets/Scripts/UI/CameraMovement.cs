@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour {
+	//싱글톤
 	public static CameraMovement Instance {
 		get {
 			if (instance == null) {
@@ -24,8 +25,13 @@ public class CameraMovement : MonoBehaviour {
 
 	Vector3 cameraPosition;
 
+	void Start() {
+		cameraPosition.x = Player.transform.position.x;
+	}
+
 	// Update is called once per frame
 	void LateUpdate() {
+		//플레이어에 맞추어서 위 아래로만 이동
 		cameraPosition.y = Player.transform.position.y + offsetY;
 		cameraPosition.z = Player.transform.position.z + offsetZ;
 
@@ -33,6 +39,7 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	public void CameraNextRoom() {
+		//방을 옮기면 좌우 이동
 		cameraPosition.x = Player.transform.position.x;
 	}
 }
