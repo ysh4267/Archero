@@ -126,7 +126,7 @@ public class PlayerTargeting : MonoBehaviour {
 		if (getATarget && !JoyStickMovement.Instance.isPlayerMoving && MonsterList.Count != 0) {
 			//적이 존재하고 조이스틱이 중앙에 있고 몬스터카운터가 0이아니라면
 			transform.LookAt(new Vector3(MonsterList[TargetIndex].transform.position.x, transform.position.y, MonsterList[TargetIndex].transform.position.z)); //몬스터 방향으로 캐릭터 회전
-			Attack();
+			//Attack();
 			if (PlayerMovement.Instance.Anim.GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
 				//플레이어의 애니메이션 상태가 Idle이라면
 				PlayerMovement.Instance.Anim.SetBool("Idle", false);

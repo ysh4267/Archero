@@ -46,7 +46,6 @@ public class StageManager : MonoBehaviour {
 	}
 
 	public void NextStage() {
-		Debug.Log("NextStage F Start");
 		currentStage++;
 		if (currentStage > LastStage) return;//막보를 잡았으면 리턴
 
