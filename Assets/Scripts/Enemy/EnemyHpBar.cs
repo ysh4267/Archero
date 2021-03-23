@@ -36,7 +36,6 @@ public class EnemyHpBar : MonoBehaviour {
     }
     //시험용 피격대미지 함수
     public void Dmg() {
-        currentHp -= 900f;
         Invoke("BackHpFun", 0.5f);
     }
 

@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - NextRoom
   - Potato
+  - MeleeAtk
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX

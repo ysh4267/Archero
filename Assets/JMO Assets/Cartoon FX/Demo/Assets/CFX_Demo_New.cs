@@ -26,13 +26,13 @@ public class CFX_Demo_New : MonoBehaviour
 
 	//-------------------------------------------------------------
 
-	private GameObject[] ParticleExamples;
-	private int exampleIndex;
-	private bool slowMo;
-	private Vector3 defaultCamPosition;
-	private Quaternion defaultCamRotation;
+	[SerializeField] private GameObject[] ParticleExamples;
+	[SerializeField]private int exampleIndex;
+	[SerializeField]private bool slowMo;
+	[SerializeField]private Vector3 defaultCamPosition;
+	[SerializeField]private Quaternion defaultCamRotation;
 	
-	private List<GameObject> onScreenParticles = new List<GameObject>();
+	[SerializeField]private List<GameObject> onScreenParticles = new List<GameObject>();
 	
 	//-------------------------------------------------------------
 	
