@@ -25,7 +25,7 @@ public class PlayerTargeting : MonoBehaviour {
 	int closeDistIndex = 0; //가까운 적의 인덱스 번호
 	public int TargetIndex = -1; //타겟팅 중인 적의 인덱스 번호
 	int prevTargetIndex = 0; //이전에 타겟팅했던 적의 인덱스 번호
-	public LayerMask layerMask; //레이캐스트시에 제외시킬 레이어들
+	//public LayerMask layerMask; //레이캐스트시에 제외시킬 레이어들
 
 	public float atkSpd = 1f; //공격속도
 
@@ -34,14 +34,14 @@ public class PlayerTargeting : MonoBehaviour {
 	public GameObject PlayerBolt; //투사체
 	public Transform AttackPoint; //투사체 발사지점
 
-	void OnDrawGizmos() {
+	void OnDrawGizmosSelected() {
 		//타겟과 플레이어 사이에 선을 그림
 		if (getATarget) {
 			//적이 있다면
 			for (int i = 0; i < MonsterList.Count; i++) {
 				if (MonsterList[i] == null) return;
 				RaycastHit hit;
-				bool isHit = Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), MonsterList[i].transform.position - transform.position, out hit, 20f, layerMask);
+				bool isHit = Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), MonsterList[i].transform.position - transform.position, out hit, 20f);
 				//레이캐스트로 몬스터 리스트에있는 모든 몬스터의 위치에 레이저를 쏨 (바닥에 딱 붙지 않게 0.5만큼 위로 올림)
 				if (isHit && hit.transform.CompareTag("Monster")) {
 					//레이저가 Monster태그를 한 오브젝트에 직접 맞았다면 녹색
@@ -83,7 +83,7 @@ public class PlayerTargeting : MonoBehaviour {
 				currentDist = Vector3.Distance(transform.position, MonsterList[i].transform.position);
 				//플레이어와 적과의 거리 측정
 				RaycastHit hit;
-				bool isHit = Physics.Raycast(transform.position, MonsterList[i].transform.position - transform.position, out hit, 20f, layerMask); //몬스터리스트 위치에 쏜 레이저가 맞았는가
+				bool isHit = Physics.Raycast(transform.position, MonsterList[i].transform.position - transform.position, out hit, 20f); //몬스터리스트 위치에 쏜 레이저가 맞았는가
 				if (isHit && hit.transform.CompareTag("Monster")) {
 					//맞았으며 맞은 대상이 벽이 아니라 몬스터인가
 					if (TargetDist >= currentDist) {

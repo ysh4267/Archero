@@ -56,6 +56,7 @@ public class EnemyMeleeFSM : EnemyBase {
         if(CanAtkStateFun()) {
             //공격 쿨타임이 돌았으면 공격
             if(canAtk) {
+                Debug.Log("공격상태로 전환됨");
                 currentState = State.Attack;
             }
             //사거리안에 플레이어는 있지만 공격 쿨타임은 아직이라면 대기
@@ -82,7 +83,7 @@ public class EnemyMeleeFSM : EnemyBase {
         yield return Delay500; //0.5초의 플레이어가 회피가능한 시간
 
         nvAgent.isStopped = false; //정지이후
-        nvAgent.speed = 30f; //30의속도로 돌진
+        nvAgent.speed = 100f; //30의속도로 돌진
         canAtk = false; //공격쿨타임 적용
 
         if(!Anim.GetCurrentAnimatorStateInfo(0).IsName("stun")) {

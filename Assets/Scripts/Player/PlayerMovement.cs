@@ -38,7 +38,6 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter (Collider other) {
-		Debug.Log("Trigger On");
 		if (other.transform.CompareTag("NextRoom")) {
 			Debug.Log("NextRom Tag");
 			StageManager.Instance.NextStage();

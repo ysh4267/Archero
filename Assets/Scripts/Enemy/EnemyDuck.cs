@@ -24,7 +24,7 @@ public class EnemyDuck : EnemyMeleeFSM {
         attackCoolTimeCacl = attackCoolTime; //초기화된 쿨타임으로 현재 쿨타임적용
 
         attackRange = 3f; //해당 오브젝트의 공격 사거리 초기화
-        nvAgent.stoppingDistance = 1f; //해당 오브젝트의 stoppingDistance 초기화
+        nvAgent.stoppingDistance = 3f; //해당 오브젝트의 stoppingDistance 초기화
 
         StartCoroutine(ResetAtkArea());
     }
@@ -49,7 +49,7 @@ public class EnemyDuck : EnemyMeleeFSM {
 
     protected override void AtkEffect() {
         Instantiate(EffectSet.Instance.DuckAtkEffect, transform.position, Quaternion.Euler (90, 0, 0));
-        //EffectSet함수에서 DuckAtkEffect 생성
+        //EffectSet클래스에서 DuckAtkEffect 생성
     }
 
     // Update is called once per frame

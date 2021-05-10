@@ -27,7 +27,7 @@ public class EnemyBase : MonoBehaviour {
     protected Animator Anim;
     protected Rigidbody rb;
 
-    public LayerMask layerMask; //레이캐스트를 위한 레이어마스크
+    //public LayerMask layerMask; //레이캐스트를 위한 레이어마스크
 
     // Start is called before the first frame update
     protected void Start() {
@@ -50,12 +50,13 @@ public class EnemyBase : MonoBehaviour {
     void Update() {
 
     }
-
     //공격 사거리안에 Player를 감지하는 함수
     protected bool CanAtkStateFun() {
+        RaycastHit hit;
         Vector3 targetDir = new Vector3(Player.transform.position.x - transform.position.x, 0f, Player.transform.position.z - transform.position.z); //Enemy에서 Player쪽 방향 벡터값
-        Physics.Raycast(new Vector3(transform.position.x, 0.5f, transform.position.z), targetDir, out RaycastHit hit, 30f, layerMask); //Enemy에서 targetDir방향으로 30거리만큼만 레이캐스트
+        Physics.Raycast(new Vector3(transform.position.x, 0.5f, transform.position.z), targetDir, out hit, 30f); //Enemy에서 targetDir방향으로 30거리만큼만 레이캐스트
         distance = Vector3.Distance(Player.transform.position, transform.position); //Enemy와 Player사이의 거리값
+        Debug.DrawRay(new Vector3(transform.position.x, 0.5f, transform.position.z), targetDir * 30f, Color.green);
         //30거리안에 플레이어가 없을시 false
         if(hit.transform == null) {
             Debug.Log("hit.transForm == null");
@@ -63,6 +64,7 @@ public class EnemyBase : MonoBehaviour {
         }
         //플레이어에게 레이캐스트가 적중하고 Enemy와 Player사이의 거리값이 공격사거리보다 작으면 true
         if(hit.transform.CompareTag("Player")&&distance <= attackRange) {
+            Debug.Log("사거리 안의 플레이어 감지됨");
             return true;
         }
         //예외처리용 false
